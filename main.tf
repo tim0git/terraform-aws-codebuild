@@ -20,7 +20,7 @@ EOF
 }
 
 resource "aws_iam_policy" "codebuild" {
-  name = "policy-618033"
+  name = "${var.project_name}-codebuild-iam-policy"
 
   policy = jsonencode({
     Version = "2012-10-17"
