@@ -64,6 +64,15 @@ resource "aws_iam_policy" "codebuild" {
         "Resource": [
           "arn:aws:codebuild:*:${data.aws_caller_identity.current.account_id}:report-group/*"
         ]
+      },
+      {
+        "Effect": "Allow",
+        "Action": [
+          "ssm:GetParameters",
+        ],
+        "Resource": [
+          "arn:aws:ssm:*:${data.aws_caller_identity.current.account_id}:parameter/*"
+        ]
       }
     ]
   })
