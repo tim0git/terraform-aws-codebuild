@@ -93,7 +93,7 @@ resource "aws_codebuild_project" "this" {
     image                       = var.image
     type                        = var.image_type
     image_pull_credentials_type = var.image_pull_credentials_type
-
+    privileged_mode = var.enable_container_features
 
     dynamic "environment_variable" {
       for_each = var.environment_variables
