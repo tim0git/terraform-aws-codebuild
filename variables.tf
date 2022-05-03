@@ -62,6 +62,12 @@ variable "environment_variables" {
   ]
 }
 
+variable "enable_container_features" {
+  description = "If true, build project will run in privileged mode, and ecr actions required for build and deploy will be added to build project iam role"
+  type        = bool
+  default     = false
+}
+
 variable "artifacts_type" {
   description = "Build output artifact's type. Valid values: CODEPIPELINE, NO_ARTIFACTS, S3"
   type        = string
