@@ -10,10 +10,15 @@ locals {
     Action : [
       "ecr:BatchCheckLayerAvailability",
       "ecr:CompleteLayerUpload",
-      "ecr:GetAuthorizationToken",
       "ecr:InitiateLayerUpload",
       "ecr:PutImage",
       "ecr:UploadLayerPart"
+    ]
+  },{
+    Effect : "Allow",
+    Resource : ["*"],
+    Action : [
+      "ecr:GetAuthorizationToken"
     ]
   }] : []
 }
