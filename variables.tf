@@ -68,6 +68,12 @@ variable "enable_container_features" {
   default     = false
 }
 
+variable "container_architecture" {
+  description = "The container architecture. Valid values: amd64, arm64. Defaults to amd64"
+  type        = string
+  default     = "amd64"
+}
+
 variable "artifacts_type" {
   description = "Build output artifact's type. Valid values: CODEPIPELINE, NO_ARTIFACTS, S3"
   type        = string

@@ -10,8 +10,8 @@ resource "aws_codebuild_project" "this" {
 
   environment {
     compute_type                = var.compute_type
-    image                       = var.image
-    type                        = var.image_type
+    image                       = var.container_architecture == "arm64" ? "aws/codebuild/amazonlinux2-aarch64-standard:2.0" : var.image
+    type                        = var.container_architecture == "arm64" ? "ARM_CONTAINER" : var.image_type
     image_pull_credentials_type = var.image_pull_credentials_type
     privileged_mode = var.enable_container_features
 
