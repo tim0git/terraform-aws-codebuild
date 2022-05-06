@@ -12,7 +12,9 @@ locals {
       "ecr:CompleteLayerUpload",
       "ecr:InitiateLayerUpload",
       "ecr:PutImage",
-      "ecr:UploadLayerPart"
+      "ecr:UploadLayerPart",
+      "ecr:BatchGetImage",
+      "ecr:GetDownloadUrlForLayer"
     ]
   },{
     Effect : "Allow",
