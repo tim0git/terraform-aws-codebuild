@@ -40,6 +40,12 @@ variable "source_type" {
   default     = "CODEPIPELINE"
 }
 
+variable "buildspec" {
+  description = "The buildspec file to use for the build"
+  type        = string
+  default     = "buildspec.yml"
+}
+
 variable "environment_variables" {
   description = "The environment variables"
   type        = any

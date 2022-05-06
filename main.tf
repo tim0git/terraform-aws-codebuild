@@ -34,6 +34,7 @@ resource "aws_codebuild_project" "this" {
 
   source {
     type = var.source_type
+    buildspec = var.buildspec
   }
 
   tags = var.tags
