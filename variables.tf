@@ -86,6 +86,12 @@ variable "artifacts_type" {
   default     = "CODEPIPELINE"
 }
 
+variable "codedbuild_service_role_kms_key_alias" {
+    description = "The KMS key alias to use for encrypting the build output artifacts. If you don't specify a value, AWS CodeBuild uses the default KMS key for Amazon Simple Storage Service (S3)."
+    type        = string
+    default     = "aws/s3"
+}
+
 variable "tags" {
   default = {
     Name = "my-code-build"

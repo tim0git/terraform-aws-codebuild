@@ -27,6 +27,10 @@ locals {
 
 data "aws_caller_identity" "current" {}
 
+data "aws_kms_key" "codedbuild_service_role_kms_key" {
+  key_id = var.codedbuild_service_role_kms_key_alias
+}
+
 resource "aws_iam_role" "this" {
   name = "${var.project_name}-codebuild-service-role"
 
@@ -101,6 +105,15 @@ resource "aws_iam_policy" "codebuild" {
         ],
         Resource : [
           "arn:aws:ssm:*:${data.aws_caller_identity.current.account_id}:parameter/*"
+        ]
+      },
+      {
+        Effect : "Allow",
+        Action : [
+          "kms:GenerateDataKey",
+        ],
+        Resource : [
+          data.aws_kms_key.codedbuild_service_role_kms_key.arn
         ]
       }
     ], local.ecr_policy)
