@@ -19,7 +19,7 @@ variable "compute_type" {
 variable "image" {
   description = "The name of the image"
   type        = string
-  default     = "aws/codebuild/standard:5.0"
+  default     = "aws/codebuild/standard:6.0"
 }
 
 variable "image_type" {
